@@ -40,5 +40,14 @@ namespace OutilsCollections
             Console.WriteLine("La valeur maximale est: " + maxValue);
         }
 
+        public static void AfficherList(List<string> liste)
+        {
+            for (int i = 0; i < liste.Count; i++)
+            {
+                Console.WriteLine(liste[i]);
+            }
+
+        }
+
     }
 }

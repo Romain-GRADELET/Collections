@@ -88,6 +88,8 @@ namespace nombre_magique
             outils.AfficherList(lesPremiersNoms);
         }
 
+
+
         static void Main(string[] args)
         {
             //Tableaux();

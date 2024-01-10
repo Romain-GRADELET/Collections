@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using OutilsCollections;
 
 namespace nombre_magique
@@ -111,11 +112,63 @@ namespace nombre_magique
             outils.AfficherElementsCommuns(liste1, liste2);
         }
 
+        static void ArrayList()
+        {
+            // ArrayList est très peu utilisé car ce n'est pas une bonne pratique de mixer les types
+            ArrayList a = new ArrayList();
+            a.Add("toto"); // nom
+            a.Add(49); // age
+            a.Add(true); // homme
+
+            for (int i = 0; i < a.Count; i++)
+            {
+                Console.WriteLine(a[i]);
+            }
+
+            // Object
+            var nom = a[0];
+            int age = (int)a[1]; // cast => consiste à force le typage
+            age++;
+
+            Console.WriteLine("nom de la personne : " + nom);
+            Console.WriteLine("age de la personne : " + age);
+        }
+
+        static void ListeDeListes()
+        {
+            /*var villes = new List<string>();
+            villes.Add("France : Paris, Toulouse, Nice, Bordeaux, Lille");
+            villes.Add("Etats-unis: New-York, Chicago, Los Angeles, San Fransisco");
+            villes.Add("Espagne : Madrid, Barcelone, Séville");
+            villes.Add("Italie : Venise, Florence, Milan, Pise");*/
+
+            var pays = new List<List<string>>();
+
+            pays.Add(new List<string>() { "France", "Paris", "Toulouse", "Nice", "Bordeaux", "Lille" });
+            pays.Add(new List<string>() { "Etats-unis", "New-York", "Chicago", "Los Angeles", "San Fransisco" });
+            pays.Add(new List<string>() { "Espagne", "Madrid", "Barcelone", "Séville" });
+            pays.Add(new List<string>() { "Italie", "Venise", "Florence", "Milan", "Pise" });
+
+            for(int i = 0;i < pays.Count; i++)
+            {
+                var p = pays[i];
+                Console.WriteLine(p[0] + " - " + (p.Count-1) + " villes");
+                for(int j = 1; j < p.Count; j++)
+                {
+                    Console.WriteLine("  "+ p[j]);
+                }
+                Console.WriteLine();
+            }
+        }
+
+
         static void Main(string[] args)
         {
             //Tableaux();
             //Listes();
             //ListesCommunes();
+            //ArrayList();
+            ListeDeListes();
         }
     }
 }

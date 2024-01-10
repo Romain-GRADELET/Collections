@@ -5,7 +5,7 @@ namespace nombre_magique
 {
     class Program
     {
-        static void Tableaux() 
+        static void Tableaux()
         {
             /*int[] t = new int[5];
             t[0] = 200;
@@ -17,7 +17,7 @@ namespace nombre_magique
             //int[] t = { 200, 40, 15, 8, 12 };
 
             const int TAILLE_TABLEAU = 20;
-            
+
             int[] t = new int[TAILLE_TABLEAU];
 
             for (int i = 0; i < t.Length; i++)
@@ -26,9 +26,9 @@ namespace nombre_magique
                 t[i] = rand.Next(0, 100);
             }
 
-            outils.AfficherTableau (t);
-            outils.AfficherValeurMaximal (t);
-            outils.AfficherValeurMinimal (t);
+            outils.AfficherTableau(t);
+            outils.AfficherValeurMaximal(t);
+            outils.AfficherValeurMinimal(t);
 
             /*for (int i = 0; i < t.Length; i++)
             {
@@ -58,7 +58,8 @@ namespace nombre_magique
 
             outils.AfficherList(liste);*/
 
-            List<string> noms = new List<string>();
+            //List<string> noms = new List<string>();
+            var noms = new List<string>() { "jean", "Paul" };
 
             while (true)
             {
@@ -69,7 +70,7 @@ namespace nombre_magique
                 {
                     break;
                 }
-                
+
                 if (noms.Contains(nom))
                 {
                     Console.WriteLine("ERREUR: Le nom est déjà dans la liste");
@@ -79,21 +80,42 @@ namespace nombre_magique
                 {
                     noms.Add(nom);
                 }
+
+
+                // filtrer : Supprimer tout les noms qui se termine par "e"
+                // remove At / Longueur de la liste altéré
+                // Boucler en partant de la fin
+
+                /*for (int i = noms.Count - 1; i >= 0; i--)
+                {
+                    string nom = noms[i];
+                    if (nom[nom.Length-1] == 'e')
+                    {
+                        noms.RemoveAt(i);
+                    }
+                }
+
+                outils.AfficherList(noms, true);*/
+
+                // GetRange(0, 3) permet de récupéré les 3 noms à partir du nom ayant l'index 0
+                List<string> lesPremiersNoms = noms.GetRange(0, 3);
+                outils.AfficherList(lesPremiersNoms);
             }
-
-            outils.AfficherList(noms);
-
-            // GetRange(0, 3) permet de récupéré les 3 noms à partir du nom ayant l'index 0
-            List<string> lesPremiersNoms = noms.GetRange(0, 3);
-            outils.AfficherList(lesPremiersNoms);
+            
         }
+        static void ListesCommunes()
+        {
+            var liste1 = new List<string>() { "Paul", "Jean", "Pierre", "Emilie", "Martin" };
+            var liste2 = new List<string>() { "Sophie", "Jean", "Martin", "toto" };
 
-
+            outils.AfficherElementsCommuns(liste1, liste2);
+        }
 
         static void Main(string[] args)
         {
             //Tableaux();
-            Listes();
+            //Listes();
+            //ListesCommunes();
         }
     }
 }

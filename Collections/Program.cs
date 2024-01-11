@@ -169,7 +169,7 @@ namespace nombre_magique
             // Clef -> valeur
             // Nom -> Numéro de téléphone "+33"
 
-            /*var d = new Dictionary<string, string>();
+            var d = new Dictionary<string, string>();
             d.Add("Jean", "0679864591");
             d.Add("Marie", "0688252625");
             d["Martin"] = "0679894565";
@@ -181,9 +181,12 @@ namespace nombre_magique
             else
             {
                 Console.WriteLine("Cette personne n'a pas été trouvée");
-            }*/
+            }
 
-            var l = new List<string[]>();
+            // ----------------------------------------------------------
+            // Déprécié car ne sera pas optimisé pour des grosses recherche
+            // ----------------------------------------------------------
+            /*var l = new List<string[]>();
             l.Add(new string[] { "Jean", "0679864591" });
             l.Add(new string[] { "Marie", "0688252625" });
             l.Add(new string[] { "Martin", "0679894565" });
@@ -195,7 +198,32 @@ namespace nombre_magique
                     Console.WriteLine(l[i][1]);
                     break;
                 }
+            }*/
+            // -----------------------------------------------------------
+
+        }
+
+        static void BoucleForEach()
+        {
+            //var noms = new string[] { "Toto", "Jean", "Pierre" };
+            //var noms = new List<string> { "Toto", "Jean", "Pierre" };
+
+            // Boucle For
+            /*for(int i = 0; i < noms.Length; i++)
+            {
+                Console.WriteLine(noms[i]);
+            }*/
+
+            var d = new Dictionary<string, string>();
+            d.Add("Jean", "0679864591");
+            d.Add("Marie", "0688252625");
+            d["Martin"] = "0679894565";
+
+            foreach (var nom in d)
+            {
+                Console.WriteLine(nom.Key + " -> " + nom.Value);
             }
+
         }
 
         static void Main(string[] args)
@@ -205,7 +233,8 @@ namespace nombre_magique
             //ListesCommunes();
             //ArrayList();
             //ListeDeListes();
-            Dictionnaire();
+            //Dictionnaire();
+            BoucleForEach();
         }
     }
 }

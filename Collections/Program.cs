@@ -262,7 +262,7 @@ namespace nombre_magique
 
         }
 
-        static void MaFonction(int p)
+        static void MaFonction(out int p)
         {
             p = 10;
         }
@@ -275,12 +275,23 @@ namespace nombre_magique
         static void PassageValeurOuRef()
         {
             /*int a = 5;
-            MaFonction(a);*/
+            MaFonction(out a); // passage par référence
+            Console.WriteLine(a);*/
 
-            var l = new List<int> { 5 };
-            MaFonction2(l); 
+            /*var l = new List<int> { 5 };
+            MaFonction2(l);
+            Console.WriteLine(l[0]);*/
 
-            Console.WriteLine(l);
+            int num = 0;
+            if (int.TryParse("15", out num))
+            {
+                Console.WriteLine("Conversion OK");
+                num++;
+            }
+            else
+            {
+                Console.WriteLine("Conversion Failed");
+            }
         }
 
         static void Main(string[] args)

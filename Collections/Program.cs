@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Microsoft.VisualBasic;
 using OutilsCollections;
 
 namespace nombre_magique
@@ -226,6 +227,62 @@ namespace nombre_magique
 
         }
 
+        static void TrisEtLinq()
+        {
+            var noms = new List<string> { "Toto", "Jean", "Pierre", "Vincent", "Anne", "Romain" };
+            // Tris dans l'ordre alphabétique croissant
+            //noms.Sort();
+
+            // Tris dans l'ordre alphabétique croissant
+            //var nomsTries = noms.OrderBy(nom => nom);
+
+            // Tris dans l'ordre alphabétique décroissant
+            //var nomsTries = noms.OrderByDescending(nom => nom);
+
+            // Tris en fonction du nombre de caractère
+            //var nomsTries = noms.OrderBy(nom => nom.Length);
+
+            //noms = noms.OrderBy(nom => nom).ToList(); // Tri par ordre alphabétique
+            //noms = noms.Where(nom => nom[nom.Length -1] == 'e').ToList(); // Sélectionne uniquement les chaines se terminant par un e
+
+
+            /*foreach (var nom in noms)
+            {
+                Console.WriteLine(nom);
+            }*/
+
+            var notes = new List<int>() {4, 6, 8, 2, 3, 7, 12, 11, 20 };
+            notes = notes.OrderBy(note => note).ToList(); // Tris ordre croissant
+            notes = notes.Where(note => note >= 10).ToList(); // Affiche les notes >= 10
+
+            foreach (var note in notes)
+            {
+                Console.WriteLine(note);
+            }
+
+        }
+
+        static void MaFonction(int p)
+        {
+            p = 10;
+        }
+
+        static void MaFonction2(List<int> p)
+        {
+            p[0] = 10;
+        }
+
+        static void PassageValeurOuRef()
+        {
+            /*int a = 5;
+            MaFonction(a);*/
+
+            var l = new List<int> { 5 };
+            MaFonction2(l); 
+
+            Console.WriteLine(l);
+        }
+
         static void Main(string[] args)
         {
             //Tableaux();
@@ -234,7 +291,9 @@ namespace nombre_magique
             //ArrayList();
             //ListeDeListes();
             //Dictionnaire();
-            BoucleForEach();
+            //BoucleForEach();
+            //TrisEtLinq();
+            PassageValeurOuRef();
         }
     }
 }

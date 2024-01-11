@@ -161,6 +161,42 @@ namespace nombre_magique
             }
         }
 
+        static void Dictionnaire()
+        {
+
+            string personneAChercher = "Martin";
+            //Dictionary
+            // Clef -> valeur
+            // Nom -> Numéro de téléphone "+33"
+
+            /*var d = new Dictionary<string, string>();
+            d.Add("Jean", "0679864591");
+            d.Add("Marie", "0688252625");
+            d["Martin"] = "0679894565";
+
+            if (d.ContainsKey(personneAChercher))
+            {
+                Console.WriteLine(d[personneAChercher]);
+            }
+            else
+            {
+                Console.WriteLine("Cette personne n'a pas été trouvée");
+            }*/
+
+            var l = new List<string[]>();
+            l.Add(new string[] { "Jean", "0679864591" });
+            l.Add(new string[] { "Marie", "0688252625" });
+            l.Add(new string[] { "Martin", "0679894565" });
+
+            for (int i = 0; i < l.Count; i++)
+            {
+                if (l[i][0] == personneAChercher)
+                {
+                    Console.WriteLine(l[i][1]);
+                    break;
+                }
+            }
+        }
 
         static void Main(string[] args)
         {
@@ -168,7 +204,8 @@ namespace nombre_magique
             //Listes();
             //ListesCommunes();
             //ArrayList();
-            ListeDeListes();
+            //ListeDeListes();
+            Dictionnaire();
         }
     }
 }
